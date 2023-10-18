@@ -3,7 +3,7 @@ import Post from './Post/Post';
 
 const MyPosts = () => {
   return (
-    <div className={classes.content}>
+    <div>
         <div>
           My post
           
@@ -17,7 +17,7 @@ const MyPosts = () => {
           </div>
         
         </div>
-        <div className={classes.posts}>
+        <div>
           <Post message="Hi, how are you?" like="15"/>
           <Post message="It's my first post" like="25" />
           <Post />
