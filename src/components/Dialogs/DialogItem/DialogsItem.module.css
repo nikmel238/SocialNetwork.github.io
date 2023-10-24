@@ -1,4 +1,10 @@
-
+.dialogItem {
+    margin: 20px 0px;
+}
+.dialogItem a {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 .dialog {
     color: white;
 }

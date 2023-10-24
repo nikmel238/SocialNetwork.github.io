@@ -1,0 +1,21 @@
+.item {
+    color: white;
+}
+
+.active {
+    color: gold;
+}
+.friendBlock {
+    margin-top: 50px;
+    font-size: xx-large;
+    text-align: center;
+}
+.friend {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: small;
+}
+
+.friend img {
+    height: 40px
+}

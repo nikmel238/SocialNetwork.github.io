@@ -7,11 +7,9 @@
 .nav a {
   text-decoration: none;
 }
-.item {
-  color: white;
+
+a div {
+  margin-left: 10px;
 }
 
-.active {
-  color: gold;
-}
 
