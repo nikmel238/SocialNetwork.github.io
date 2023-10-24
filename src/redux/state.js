@@ -79,7 +79,7 @@ let state = {
     }
 }
 
-export let addPost = (postMessage) => {
+export let addPost = () => {
     let newPost = {
         id: 5,
         message: state.profilePage.newPostText,
