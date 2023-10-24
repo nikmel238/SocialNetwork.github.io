@@ -23,7 +23,8 @@ let state = {
                 message: "STRIKE",
                 likeCount: 22,
             },
-        ]
+        ],
+        newPostText: `it-kamasutra`,
     },
     messagesPage: {
         dialogs: [
@@ -81,11 +82,18 @@ let state = {
 export let addPost = (postMessage) => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likeCount: 0,
     };
-
+    state.profilePage.newPostText = ``;
     state.profilePage.posts.push(newPost);
+
+    renderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+
+    state.profilePage.newPostText = newText;
     renderEntireTree(state);
 }
 
