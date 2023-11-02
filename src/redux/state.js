@@ -1,5 +1,7 @@
 const ADD_POST = `ADD-POST`;
-const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`;
+const UPDATE_NEW_POST_TEXT = `UPDATE-NEW-POST-TEXT`
+const SEND_MESSAGE = `SEND-MESSAGE`;
+const UPDATE_NEW_MESSAGE_BODY = `UPDATE-NEW-MESSAGE-BODY`
 
 let store = {
     _state: {
@@ -74,6 +76,7 @@ let store = {
                     message: "Balalayka",
                 },
             ],
+            newMessageBody: `new Message`,
         },
         navbar: {
             menu: ["Profile", "Message", "News", "Music", "Settings"],
@@ -104,6 +107,17 @@ let store = {
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber();
+        } else if (action.type === SEND_MESSAGE) {
+            const newMessage = {
+                id: 5,
+                message: this._state.messagesPage.newMessageBody,
+            }
+            this._state.messagesPage.messages.push(newMessage);
+            this._state.messagesPage.newMessageBody = ``;
+            this._callSubscriber();
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.messagesPage.newMessageBody = action.body;
+            this._callSubscriber();
         }
     },
 }
@@ -111,6 +125,11 @@ export const addPostActionCreator = () => ({type: ADD_POST,})
 
 export const updateNewPostTextActionCreator = (text) =>
     ({type: UPDATE_NEW_POST_TEXT, newText: text,})
+
+export const sendNewMessageBodyCreator = () => ({type: SEND_MESSAGE,});
+
+export const updateNewMessageCreator = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
+
 
 export default store;
 window.store = store;
