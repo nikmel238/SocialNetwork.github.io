@@ -1,6 +1,6 @@
 
 import React from "react";
-import {sendNewMessageBodyCreator, updateNewMessageCreator} from "../../../redux/state";
+import {sendNewMessageBodyCreator, updateNewMessageCreator} from "../../../redux/dialogs-reducer";
 
 const Message = (props) => {
     let newMessageBody = props.messagesPage.newMessageBody;
