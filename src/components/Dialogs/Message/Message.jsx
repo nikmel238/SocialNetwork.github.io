@@ -1,21 +1,19 @@
-
 import React from "react";
 import {sendNewMessageBodyCreator, updateNewMessageCreator} from "../../../redux/dialogs-reducer";
 
 const Message = (props) => {
-    let newMessageBody = props.messagesPage.newMessageBody;
-    let messagesElements = props.messagesPage.messages.map(
+    let newMessageBody = props.newMessageBody;
+    let messagesElements = props.messages.map(
         m => <div>{m.message}</div>
     );
 
-    let sendMessage = () => {
-        props.dispatch(sendNewMessageBodyCreator());
+    let onSendMessage = () => {
+        props.sendMessage();
     }
 
-    let updateNewMessageBody = (event) => {
+    let onUpdateNewMessageBody = (event) => {
         const body = event.target.value;
-        const action = updateNewMessageCreator(body);
-        props.dispatch(action);
+        props.updateNewMessageBody(body);
     }
 
     return (
@@ -24,10 +22,10 @@ const Message = (props) => {
                 {messagesElements}
             </div>
             <div>
-                <textarea value={newMessageBody} onChange={updateNewMessageBody}></textarea>
+                <textarea value={newMessageBody} onChange={onUpdateNewMessageBody}></textarea>
             </div>
             <div>
-                <button onClick={sendMessage}>Add post</button>
+                <button onClick={onSendMessage}>Add post</button>
                 <button>Remove</button>
             </div>
         </div>

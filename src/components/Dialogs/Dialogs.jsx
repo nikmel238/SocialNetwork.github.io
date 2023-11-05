@@ -1,13 +1,12 @@
 import classes from './Dialogs.module.css';
-
 import DialogItem from "./DialogItem/DialogItem";
-import Message from "./Message/Message";
 import React from "react";
+import MessageContainer from "./Message/MessageContainer";
 
 const Dialogs = (props) => {
 
 
-    let dialogsElements = props.store.getState().messagesPage.dialogs.map(
+    let dialogsElements = props.dialogs.map(
         d => <DialogItem id={d.id} name={d.name} logo={d.logo}/>
     );
 
@@ -17,7 +16,7 @@ const Dialogs = (props) => {
             <div className={classes.dialogItems}>
                 {dialogsElements}
             </div>
-            <div className={classes.messages}><Message messagesPage={props.store.getState().messagesPage} dispatch={props.store.dispatch.bind(props.store)}/></div>
+            <div className={classes.messages}><MessageContainer messagesPage={props.messagesPage} dispatch={props.dispatch}/></div>
         </div>
     )
 }
