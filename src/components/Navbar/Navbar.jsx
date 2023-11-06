@@ -1,17 +1,26 @@
 import classes from './Navbar.module.css';
-import {NavLink} from "react-router-dom";
-import Profile from "../Profile/Profile";
 import MenuNavbar from "./MenuNavbar/MenuNavbar";
 import FriendsBlock from "./FriendsBlock/FriendsBlock";
-
+import StoreContext from "../../StoreContext";
+import React from "react";
 
 
 const Navbar = (props) => {
     return (
-        <div className={classes.nav}>
-            <MenuNavbar/>
-            <FriendsBlock state={props.state}/>
-        </div>
+        <StoreContext.Consumer>
+            {(store) => {
+                let state = store.getState();
+                return (
+                    <div className={classes.nav}>
+                        <MenuNavbar/>
+                        <FriendsBlock state={state.messagesPage}/>
+                    </div>
+                );
+            }
+            }
+
+        </StoreContext.Consumer>
+
     )
 }
 
