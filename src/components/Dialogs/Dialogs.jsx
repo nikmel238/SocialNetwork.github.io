@@ -7,7 +7,7 @@ const Dialogs = (props) => {
 
 
     let dialogsElements = props.dialogs.map(
-        d => <DialogItem id={d.id} name={d.name} logo={d.logo}/>
+        d => <DialogItem key={d.id} id={d.id} name={d.name} logo={d.logo}/>
     );
 
 
