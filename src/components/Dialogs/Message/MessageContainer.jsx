@@ -4,17 +4,8 @@ import Message from "./Message";
 
 const MessageContainer = (props) => {
 
-    let sendMessage = () => {
-        props.dispatch(sendNewMessageBodyCreator());
-    }
-
-    let updateNewMessageBody = (body) => {
-        const action = updateNewMessageCreator(body);
-        props.dispatch(action);
-    }
-
     return (
-        <Message newMessageBody={props.messagesPage.newMessageBody} messages={props.messagesPage.messages} sendMessage={sendMessage} updateNewMessageBody={updateNewMessageBody}/>
+        <Message newMessageBody={props.newMessageBody} messages={props.messages} sendMessage={props.sendMessage} updateNewMessageBody={props.updateNewMessageBody}/>
     );
 }
 
